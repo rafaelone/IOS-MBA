@@ -12,6 +12,10 @@
 		AC72ECFB20D322A100B76D8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC72ECF920D322A100B76D8F /* Main.storyboard */; };
 		AC72ECFD20D322A100B76D8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC72ECFC20D322A100B76D8F /* Assets.xcassets */; };
 		AC72ED0020D322A100B76D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC72ECFE20D322A100B76D8F /* LaunchScreen.storyboard */; };
+		ACCDD2B420DC5DDE00579EDA /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = ACCDD2B320DC5DDE00579EDA /* movies.json */; };
+		ACCDD2B620DC5EBD00579EDA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDD2B520DC5EBD00579EDA /* Movie.swift */; };
+		ACCDD2B820DC694000579EDA /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDD2B720DC694000579EDA /* MoviesTableViewController.swift */; };
+		ACCDD2DE20DC82AF00579EDA /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDD2DD20DC82AF00579EDA /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		AC72ECFC20D322A100B76D8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC72ECFF20D322A100B76D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC72ED0120D322A100B76D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACCDD2B320DC5DDE00579EDA /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
+		ACCDD2B520DC5EBD00579EDA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		ACCDD2B720DC694000579EDA /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
+		ACCDD2DD20DC82AF00579EDA /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +62,13 @@
 		AC72ECF420D322A100B76D8F /* MoviesLib */ = {
 			isa = PBXGroup;
 			children = (
+				ACCDD2B320DC5DDE00579EDA /* movies.json */,
+				ACCDD2B520DC5EBD00579EDA /* Movie.swift */,
 				AC72ECF520D322A100B76D8F /* AppDelegate.swift */,
 				AC72ECF720D322A100B76D8F /* ViewController.swift */,
 				AC72ECF920D322A100B76D8F /* Main.storyboard */,
+				ACCDD2DD20DC82AF00579EDA /* MovieTableViewCell.swift */,
+				ACCDD2B720DC694000579EDA /* MoviesTableViewController.swift */,
 				AC72ECFC20D322A100B76D8F /* Assets.xcassets */,
 				AC72ECFE20D322A100B76D8F /* LaunchScreen.storyboard */,
 				AC72ED0120D322A100B76D8F /* Info.plist */,
@@ -125,6 +137,7 @@
 			files = (
 				AC72ED0020D322A100B76D8F /* LaunchScreen.storyboard in Resources */,
 				AC72ECFD20D322A100B76D8F /* Assets.xcassets in Resources */,
+				ACCDD2B420DC5DDE00579EDA /* movies.json in Resources */,
 				AC72ECFB20D322A100B76D8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCDD2DE20DC82AF00579EDA /* MovieTableViewCell.swift in Sources */,
+				ACCDD2B820DC694000579EDA /* MoviesTableViewController.swift in Sources */,
 				AC72ECF820D322A100B76D8F /* ViewController.swift in Sources */,
 				AC72ECF620D322A100B76D8F /* AppDelegate.swift in Sources */,
+				ACCDD2B620DC5EBD00579EDA /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

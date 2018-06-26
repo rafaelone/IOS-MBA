@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xPY-lw-IIO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zR1-A2-2Bj">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -94,7 +94,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Rt-Iw-aLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975" y="203.87323943661971"/>
+            <point key="canvasLocation" x="1372.5" y="203.87323943661971"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -148,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReN-kd-UMM">
-                                <rect key="frame" x="0.0" y="386" width="320" height="182"/>
+                                <rect key="frame" x="0.0" y="386" width="320" height="133"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1F-Wa-bO5">
                                         <rect key="frame" x="16" y="10" width="288" height="17"/>
@@ -164,9 +164,9 @@
                                         </variation>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V9s-mY-Yht">
-                                        <rect key="frame" x="16" y="35" width="288" height="127"/>
+                                        <rect key="frame" x="16" y="35" width="288" height="78"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -243,15 +243,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128.125" y="203.87323943661971"/>
+            <point key="canvasLocation" x="2525.625" y="203.87323943661971"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Filmes-->
         <scene sceneID="SDG-dJ-XA0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPY-lw-IIO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Filmes" image="movies" id="Y8F-dR-CCo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gSq-GL-FX4">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -261,12 +262,70 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yep-y6-BJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="204"/>
+            <point key="canvasLocation" x="17" y="263"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="lXc-3W-Yop">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zR1-A2-2Bj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="End-bj-5mX">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="xPY-lw-IIO" kind="relationship" relationship="viewControllers" id="KUv-N3-xd9"/>
+                        <segue destination="Nnw-zY-QLZ" kind="relationship" relationship="viewControllers" id="jkY-JB-P38"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axT-6Y-0nV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-803" y="437"/>
+        </scene>
+        <!--Cinemas-->
+        <scene sceneID="vH6-cQ-bn4">
+            <objects>
+                <viewController id="Nnw-zY-QLZ" customClass="MapViewController" customModule="MoviesLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8pz-Ef-gw3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UMh-OP-CcX">
+                                <rect key="frame" x="0.0" y="76" width="320" height="448"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" placeholder="Digite o ponto de interesse" translatesAutoresizingMaskIntoConstraints="NO" id="HnI-FC-JWq">
+                                <rect key="frame" x="0.0" y="20" width="320" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UMh-OP-CcX" firstAttribute="top" secondItem="HnI-FC-JWq" secondAttribute="bottom" id="38R-Fh-nuz"/>
+                            <constraint firstItem="UMh-OP-CcX" firstAttribute="trailing" secondItem="kfD-bv-KIY" secondAttribute="trailing" id="Wly-0u-YBL"/>
+                            <constraint firstItem="HnI-FC-JWq" firstAttribute="trailing" secondItem="kfD-bv-KIY" secondAttribute="trailing" id="XqP-yQ-ZsJ"/>
+                            <constraint firstItem="UMh-OP-CcX" firstAttribute="leading" secondItem="kfD-bv-KIY" secondAttribute="leading" id="bhD-qY-drv"/>
+                            <constraint firstAttribute="bottom" secondItem="UMh-OP-CcX" secondAttribute="bottom" constant="44" id="ebx-cD-GMh"/>
+                            <constraint firstItem="HnI-FC-JWq" firstAttribute="top" secondItem="kfD-bv-KIY" secondAttribute="top" id="ofU-k9-joE"/>
+                            <constraint firstItem="HnI-FC-JWq" firstAttribute="leading" secondItem="kfD-bv-KIY" secondAttribute="leading" id="wf0-vJ-IRC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kfD-bv-KIY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cinemas" image="theaters" id="da7-Ft-H7X"/>
+                    <connections>
+                        <outlet property="mapView" destination="UMh-OP-CcX" id="8tk-nt-1Zr"/>
+                        <outlet property="searchBar" destination="HnI-FC-JWq" id="MME-9l-iEt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahl-n9-Z8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.875" y="966.54929577464793"/>
         </scene>
     </scenes>
     <resources>
         <image name="avengers2" width="768" height="1025"/>
         <image name="gradient" width="600" height="120"/>
+        <image name="movies" width="22" height="22"/>
         <image name="play" width="53" height="53"/>
+        <image name="theaters" width="22" height="22"/>
     </resources>
 </document>

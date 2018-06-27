@@ -94,7 +94,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Rt-Iw-aLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372.5" y="203.87323943661971"/>
+            <point key="canvasLocation" x="902" y="262"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -111,7 +111,6 @@
                                         <variation key="heightClass=compact" constant="190"/>
                                     </constraint>
                                 </constraints>
-                                <variation key="heightClass=compact" image="avengers2"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-jU-w9v">
                                 <rect key="frame" x="134" y="153" width="53" height="53"/>
@@ -243,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2525.625" y="203.87323943661971"/>
+            <point key="canvasLocation" x="1815" y="262"/>
         </scene>
         <!--Filmes-->
         <scene sceneID="SDG-dJ-XA0">
@@ -322,7 +321,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avengers2" width="768" height="1025"/>
         <image name="gradient" width="600" height="120"/>
         <image name="movies" width="22" height="22"/>
         <image name="play" width="53" height="53"/>

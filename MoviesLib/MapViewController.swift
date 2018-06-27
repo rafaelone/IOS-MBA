@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     //IBOutlet
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     //Vareavel vai representar o elemento atual que o parse ta varrendo
     var currentElement: String = ""
@@ -24,17 +25,58 @@ class MapViewController: UIViewController {
     //variavel para armazenar todos os cinema q foram encontrado
     var theaters: [Theater] = []
     
+    // variavel para sare localizacao do usuario
+    var locationManager = CLLocationManager()
+    
+    //variavel para saber o q vai limpar
+    var poiAnnotations: [MKPointAnnotation] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        mapView.delegate = self
         loadXML()
+        requestUserLocationAuthorization()
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //metodo que irar solicitar ao usuario a autorizacao
+    func requestUserLocationAuthorization(){
+        
+        // servico de localicazao no device
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            
+            //desiredAccuracy - propriedade que define a precisao desejada da localizacao do usuario, quanto maior a precisao maior o consumo de bateria
+            //KCLLocationAccuracyBest- maneira precisa... saber exatamente o local
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            
+            //pausa se o app estiver em background
+            locationManager.pausesLocationUpdatesAutomatically = true
+            
+            //solicitanto a autorizacao
+            switch CLLocationManager.authorizationStatus(){
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Usuario ja autorizou")
+            case .denied:
+                print("Usuario corno negou")
+            case .restricted:
+                print("SiFu")
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                break
+            }
+        }
+        
+        
+    }
+    
     //metodo para load xml
     func loadXML(){
         //recuperando url do arquivo xml
@@ -118,5 +160,80 @@ extension MapViewController: XMLParserDelegate {
     //Metodo que é chamado quando estiver no final do documento
     func parserDidEndDocument(_ parser: XMLParser) {
         addTheaters()
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    //metodo que dispara no delegate pedindo qual é a view da annotation
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Construir objeto, formatar e depois retorna-lo.
+        var annotationView: MKAnnotationView!
+        
+        if annotation is TheaterAnnotation {
+            annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Theater")
+            
+            if annotationView == nil {
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Theater")
+                    annotationView.image = UIImage(named: "theaterIcon")
+                    annotationView.canShowCallout = true
+            }else{
+                    annotationView.annotation = annotation
+            }
+        }
+        return annotationView
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch  status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            mapView.showsUserLocation = true
+        default:
+            break
+        }
+    }
+    
+    // metodo disparado toda vez que o usuario modifica sua localizacao
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+//        print(userLocation.coordinate)
+//        print("Velocidade: ", userLocation.location?.speed ?? 0.0)
+//
+//        //centralizar mapa no usuario
+//        let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500)
+//        mapView.setRegion(region, animated: true)
+    }
+}
+
+extension MapViewController: UISearchBarDelegate {
+    // metodo chamado sempre que aperta no botao search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        loading.startAnimating()
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = searchBar.text!
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            self.loading.stopAnimating()
+            self.view.endEditing(true)
+            if error == nil {
+                guard let response = response else {return}
+                // limapndo pesquisa anterior
+                self.mapView.removeAnnotations(self.poiAnnotations)
+                self.poiAnnotations.removeAll()
+                for item in response.mapItems{
+                    let annotation = MKPointAnnotation()
+                    //placemark que entrega o estabelicimento
+                    annotation.coordinate = item.placemark.coordinate
+                    annotation.title = item.name
+                    annotation.subtitle = item.phoneNumber
+                    self.poiAnnotations.append(annotation)
+                    
+                }
+                self.mapView.addAnnotations(self.poiAnnotations)
+            }
+        }
     }
 }

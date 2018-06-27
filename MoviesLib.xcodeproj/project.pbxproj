@@ -10,6 +10,7 @@
 		AC446B6320E2F5C900E89CF3 /* theaters.xml in Resources */ = {isa = PBXBuildFile; fileRef = AC446B6220E2F5C900E89CF3 /* theaters.xml */; };
 		AC446B6520E2FAFF00E89CF3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC446B6420E2FAFF00E89CF3 /* MapViewController.swift */; };
 		AC446B6720E2FDFD00E89CF3 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC446B6620E2FDFD00E89CF3 /* Theater.swift */; };
+		AC446B6920E3098F00E89CF3 /* TheaterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC446B6820E3098F00E89CF3 /* TheaterAnnotation.swift */; };
 		AC72ECF620D322A100B76D8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72ECF520D322A100B76D8F /* AppDelegate.swift */; };
 		AC72ECF820D322A100B76D8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72ECF720D322A100B76D8F /* ViewController.swift */; };
 		AC72ECFB20D322A100B76D8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC72ECF920D322A100B76D8F /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		AC446B6220E2F5C900E89CF3 /* theaters.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = theaters.xml; sourceTree = "<group>"; };
 		AC446B6420E2FAFF00E89CF3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AC446B6620E2FDFD00E89CF3 /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		AC446B6820E3098F00E89CF3 /* TheaterAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterAnnotation.swift; sourceTree = "<group>"; };
 		AC72ECF220D322A100B76D8F /* MoviesLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC72ECF520D322A100B76D8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC72ECF720D322A100B76D8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				AC72ECF720D322A100B76D8F /* ViewController.swift */,
 				AC72ECF920D322A100B76D8F /* Main.storyboard */,
 				AC446B6420E2FAFF00E89CF3 /* MapViewController.swift */,
+				AC446B6820E3098F00E89CF3 /* TheaterAnnotation.swift */,
 				AC446B6620E2FDFD00E89CF3 /* Theater.swift */,
 				ACCDD2DD20DC82AF00579EDA /* MovieTableViewCell.swift */,
 				ACCDD2B720DC694000579EDA /* MoviesTableViewController.swift */,
@@ -161,6 +164,7 @@
 			files = (
 				ACCDD2DE20DC82AF00579EDA /* MovieTableViewCell.swift in Sources */,
 				AC446B6520E2FAFF00E89CF3 /* MapViewController.swift in Sources */,
+				AC446B6920E3098F00E89CF3 /* TheaterAnnotation.swift in Sources */,
 				ACCDD2B820DC694000579EDA /* MoviesTableViewController.swift in Sources */,
 				AC446B6720E2FDFD00E89CF3 /* Theater.swift in Sources */,
 				AC72ECF820D322A100B76D8F /* ViewController.swift in Sources */,

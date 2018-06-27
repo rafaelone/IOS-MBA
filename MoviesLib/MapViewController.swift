@@ -46,6 +46,27 @@ class MapViewController: UIViewController {
         xmlParser.delegate = self
         xmlParser.parse()
     }
+    
+    //Criar anotation no map
+    func addTheaters(){
+        for theater in theaters{
+            //recuperar as coordenadas da notation
+            //CLLocationCOordinate2D -> classe usada para pegar location
+            let coordinate = CLLocationCoordinate2D(latitude: theater.latitude, longitude: theater.longitude)
+            
+            //criando annotation
+            let annotation = TheaterAnnotation(coordinate: coordinate, title: theater.name, subtitle: theater.url)
+            annotation.coordinate = coordinate
+            annotation.title = theater.name
+            annotation.subtitle = theater.url
+            
+            //Add no map as anotacoes
+            mapView.addAnnotation(annotation)
+        }
+        
+        //metodo que recebe um arrayn de annotation e ele da um zoom no mapa
+        mapView.showAnnotations(mapView.annotations, animated: true)
+    }
 }
 
 
@@ -65,7 +86,24 @@ extension MapViewController: XMLParserDelegate {
     
     //Metodo disparado toda vez q o parse encontra o conteudo de um nó
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        
+        //removendo qualquer espaco em branco e entre linhas das bordas.
+        let content = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !content.isEmpty {
+            switch currentElement{
+            case "name":
+                theater.name = content
+            case "address":
+                theater.address = content
+            case "latitude":
+                theater.latitude = Double(content)!
+            case "longitude":
+                theater.longitude = Double(content)!
+            case "url":
+                theater.url = content
+            default:
+                break
+            }
+        }
     }
     
     //metodo q indica final de um elememnto
@@ -75,5 +113,10 @@ extension MapViewController: XMLParserDelegate {
             theaters.append(theater)
         }
         
+    }
+    
+    //Metodo que é chamado quando estiver no final do documento
+    func parserDidEndDocument(_ parser: XMLParser) {
+        addTheaters()
     }
 }

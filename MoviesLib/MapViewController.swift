@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
     var theaters: [Theater] = []
     
     // variavel para sare localizacao do usuario
-    var locationManager = CLLocationManager()
+    lazy var locationManager = CLLocationManager()
     
     //variavel para saber o q vai limpar
     var poiAnnotations: [MKPointAnnotation] = []
@@ -109,6 +109,44 @@ class MapViewController: UIViewController {
         //metodo que recebe um arrayn de annotation e ele da um zoom no mapa
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
+    
+    func getRoute(destination: CLLocationCoordinate2D){
+        //Objeto que faz requisicao de rota entre 2 pontos
+        let request = MKDirectionsRequest()
+        //destino
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
+        //origem
+        guard let source = locationManager.location?.coordinate else {return}
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
+        
+        //objeto que faz a requisicao
+        let directions = MKDirections(request: request)
+        directions.calculate { (response, error) in
+            if error == nil {
+                guard let response = response else {return}
+                //Clouser onde define a ordem de ordenacao doa rray, array vai ser ordenado onde os primeiros elementos tenham um tempo esperado menor que os de elementos da frente
+                let routes = response.routes.sorted(by: {$0.expectedTravelTime < $1.expectedTravelTime})
+                //Rota que quero mostrar pro usuario
+                guard let route = routes.first else {return}
+                //removendo todos os overlays add antes
+                self.mapView.removeOverlays(self.mapView.overlays)
+                self.mapView.add(route.polyline, level: .aboveRoads)
+                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                
+//                print("Nome da rota: ", route.name)
+//                print("Distancia: ",route.distance)
+//                print("Duracao: ", route.expectedTravelTime)
+//                print("Tipo de transporte: ", route.transportType)
+                //Array contendo passo a passo do que vc vai fazer no seu caminho
+//                for step in route.steps{
+//                    print("Em \(step.distance) metros, \(step.instructions)")
+//                }
+            }else{
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
 }
 
 
@@ -164,6 +202,30 @@ extension MapViewController: XMLParserDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    //renderizar rotas
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.lineWidth = 2.0
+            renderer.strokeColor = #colorLiteral(red: 0.2737571104, green: 1, blue: 0.9338441937, alpha: 1)
+            return renderer
+        }else{
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        
+    }
+    
+    //metodo disparado toda vez que o usuario clica no botao ou imagem etc.
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control  == view.leftCalloutAccessoryView {
+            //CLicou no botao esquerdo
+            guard let coordinate = view.annotation?.coordinate else {return}
+            getRoute(destination: coordinate)
+        }else{
+            //Clicou no botao direito
+        }
+    }
+    
     //metodo que dispara no delegate pedindo qual é a view da annotation
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -177,6 +239,17 @@ extension MapViewController: MKMapViewDelegate {
                     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Theater")
                     annotationView.image = UIImage(named: "theaterIcon")
                     annotationView.canShowCallout = true
+                
+                    //Definindo callOut de uma view
+                
+                //Criando botao do lado esquerdo
+                    let btLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+                    btLeft.setImage(UIImage(named: "car"), for: .normal)
+                    annotationView.leftCalloutAccessoryView = btLeft
+                
+                //Criando botao do lado direito
+                    let btRight = UIButton(type: .detailDisclosure)
+                    annotationView.rightCalloutAccessoryView = btRight
             }else{
                     annotationView.annotation = annotation
             }

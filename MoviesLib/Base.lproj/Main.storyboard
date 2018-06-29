@@ -321,27 +321,77 @@
                         <outlet property="loading" destination="XD3-rs-OI7" id="FNp-la-CV1"/>
                         <outlet property="mapView" destination="UMh-OP-CcX" id="8tk-nt-1Zr"/>
                         <outlet property="searchBar" destination="HnI-FC-JWq" id="MME-9l-iEt"/>
-                        <segue destination="KfR-DQ-bhB" kind="show" id="nLB-Ob-OJ5"/>
+                        <segue destination="KfR-DQ-bhB" kind="show" identifier="segue" id="nLB-Ob-OJ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahl-n9-Z8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="853" y="967"/>
         </scene>
-        <!--View Controller-->
+        <!--URL View Controller-->
         <scene sceneID="t8u-Mh-qi1">
             <objects>
-                <viewController id="KfR-DQ-bhB" sceneMemberID="viewController">
+                <viewController id="KfR-DQ-bhB" customClass="URLViewController" customModule="MoviesLib" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcN-Yn-ivx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MrA-6P-jvi">
+                                <rect key="frame" x="0.0" y="64" width="320" height="411"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arN-qa-gzh">
+                                <rect key="frame" x="0.0" y="475" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0Ed-6w-z9S"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" systemItem="rewind" id="gtA-cc-Oix">
+                                        <connections>
+                                            <action selector="goBack" destination="MrA-6P-jvi" id="XQp-xe-Xob"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="s62-1F-Oad"/>
+                                    <barButtonItem title="Rodas JS" id="0VY-qu-ga3">
+                                        <connections>
+                                            <action selector="runJS:" destination="KfR-DQ-bhB" id="oOa-8b-dGW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="AaG-bd-nMa"/>
+                                    <barButtonItem systemItem="fastForward" id="8Gl-Rw-1Mj">
+                                        <connections>
+                                            <action selector="goForward" destination="MrA-6P-jvi" id="r6P-L6-KEc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hN5-Fu-lrp">
+                                <rect key="frame" x="142" y="251" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.33740822800003745" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="arN-qa-gzh" firstAttribute="top" secondItem="MrA-6P-jvi" secondAttribute="bottom" id="9gK-ie-gLb"/>
+                            <constraint firstItem="MrA-6P-jvi" firstAttribute="trailing" secondItem="wGc-vC-h0c" secondAttribute="trailing" id="cYv-Cn-nZR"/>
+                            <constraint firstItem="arN-qa-gzh" firstAttribute="leading" secondItem="wGc-vC-h0c" secondAttribute="leading" id="eN3-Rp-MUX"/>
+                            <constraint firstItem="MrA-6P-jvi" firstAttribute="leading" secondItem="wGc-vC-h0c" secondAttribute="leading" id="fh4-FU-BTY"/>
+                            <constraint firstItem="arN-qa-gzh" firstAttribute="bottom" secondItem="wGc-vC-h0c" secondAttribute="bottom" id="ny3-Tx-wUI"/>
+                            <constraint firstItem="hN5-Fu-lrp" firstAttribute="centerX" secondItem="MrA-6P-jvi" secondAttribute="centerX" id="p9w-rP-qTd"/>
+                            <constraint firstItem="MrA-6P-jvi" firstAttribute="top" secondItem="wGc-vC-h0c" secondAttribute="top" id="tE7-g6-kkp"/>
+                            <constraint firstItem="arN-qa-gzh" firstAttribute="trailing" secondItem="wGc-vC-h0c" secondAttribute="trailing" id="uW3-4M-vaj"/>
+                            <constraint firstItem="hN5-Fu-lrp" firstAttribute="centerY" secondItem="MrA-6P-jvi" secondAttribute="centerY" id="vBa-Gg-zW1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wGc-vC-h0c"/>
                     </view>
+                    <connections>
+                        <outlet property="loading" destination="hN5-Fu-lrp" id="urg-rN-4md"/>
+                        <outlet property="webView" destination="MrA-6P-jvi" id="DNM-0G-KQe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSI-qw-Mf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="967"/>
+            <point key="canvasLocation" x="1672.5" y="966.54929577464793"/>
         </scene>
         <!--Cinemas-->
         <scene sceneID="GPd-zr-t96">

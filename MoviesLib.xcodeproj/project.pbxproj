@@ -20,6 +20,7 @@
 		ACCDD2B620DC5EBD00579EDA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDD2B520DC5EBD00579EDA /* Movie.swift */; };
 		ACCDD2B820DC694000579EDA /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDD2B720DC694000579EDA /* MoviesTableViewController.swift */; };
 		ACCDD2DE20DC82AF00579EDA /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDD2DD20DC82AF00579EDA /* MovieTableViewCell.swift */; };
+		ACE1CE8920E5B0BF003B9BAB /* URLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1CE8820E5B0BF003B9BAB /* URLViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		ACCDD2B520DC5EBD00579EDA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		ACCDD2B720DC694000579EDA /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		ACCDD2DD20DC82AF00579EDA /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		ACE1CE8820E5B0BF003B9BAB /* URLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				AC72ECF520D322A100B76D8F /* AppDelegate.swift */,
 				AC72ECF720D322A100B76D8F /* ViewController.swift */,
 				AC72ECF920D322A100B76D8F /* Main.storyboard */,
+				ACE1CE8820E5B0BF003B9BAB /* URLViewController.swift */,
 				AC446B6420E2FAFF00E89CF3 /* MapViewController.swift */,
 				AC446B6820E3098F00E89CF3 /* TheaterAnnotation.swift */,
 				AC446B6620E2FDFD00E89CF3 /* Theater.swift */,
@@ -166,6 +169,7 @@
 				AC446B6520E2FAFF00E89CF3 /* MapViewController.swift in Sources */,
 				AC446B6920E3098F00E89CF3 /* TheaterAnnotation.swift in Sources */,
 				ACCDD2B820DC694000579EDA /* MoviesTableViewController.swift in Sources */,
+				ACE1CE8920E5B0BF003B9BAB /* URLViewController.swift in Sources */,
 				AC446B6720E2FDFD00E89CF3 /* Theater.swift in Sources */,
 				AC72ECF820D322A100B76D8F /* ViewController.swift in Sources */,
 				AC72ECF620D322A100B76D8F /* AppDelegate.swift in Sources */,

@@ -38,11 +38,21 @@ class MapViewController: UIViewController {
         loadXML()
         requestUserLocationAuthorization()
         searchBar.delegate = self
+        
+        
     }
+    
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? URLViewController{
+            vc.url = sender as! String           
+        }
     }
     
     //metodo que irar solicitar ao usuario a autorizacao
@@ -202,6 +212,16 @@ extension MapViewController: XMLParserDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    
+    //metodo que toda vez selecionado uma view de uma anottation o metodo dispara
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let camera = MKMapCamera()
+        camera.altitude = 80
+        camera.pitch = 80
+        camera.centerCoordinate = view.annotation!.coordinate
+        mapView.setCamera(camera, animated: true)
+    }
+    
     //renderizar rotas
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolyline {
@@ -223,6 +243,8 @@ extension MapViewController: MKMapViewDelegate {
             getRoute(destination: coordinate)
         }else{
             //Clicou no botao direito
+            guard let url = view.annotation?.subtitle else {return}
+            performSegue(withIdentifier: "segue", sender: url)
         }
     }
     

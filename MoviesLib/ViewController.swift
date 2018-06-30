@@ -24,22 +24,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      lbTitle.text = movie.title
-      lbCategories.text = movie.categories
-      lbDuration.text = movie.duration
-      lbRating.text = "⭐️ \(movie.rating)/10"
-      ivMovie.image = UIImage(named: movie.image)
-       lbSinopse.text = movie.summary
+    
         
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        lbTitle.text = movie.title
+        //lbCategories.text = movie.categories
+        lbDuration.text = movie.duration
+        lbRating.text = "⭐️ \(movie.rating)/10"
+        //ivMovie.image = UIImage(named: movie.image)
+        ivMovie.image = movie.image as? UIImage
+        lbSinopse.text = movie.summary
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MovieRegisterViewController {
+            vc.movie = movie
+        }
+    }
 
 }
 

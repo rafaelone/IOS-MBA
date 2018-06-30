@@ -10,6 +10,7 @@
 		AC15ADBC20E7EE64002584B7 /* MoviesLib.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC15ADBA20E7EE64002584B7 /* MoviesLib.xcdatamodeld */; };
 		AC15ADBE20E7F642002584B7 /* MovieRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC15ADBD20E7F642002584B7 /* MovieRegisterViewController.swift */; };
 		AC15ADC020E801A7002584B7 /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC15ADBF20E801A7002584B7 /* UIViewController+CoreData.swift */; };
+		AC15ADC220E8158D002584B7 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC15ADC120E8158D002584B7 /* CategoriesTableViewController.swift */; };
 		AC446B6320E2F5C900E89CF3 /* theaters.xml in Resources */ = {isa = PBXBuildFile; fileRef = AC446B6220E2F5C900E89CF3 /* theaters.xml */; };
 		AC446B6520E2FAFF00E89CF3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC446B6420E2FAFF00E89CF3 /* MapViewController.swift */; };
 		AC446B6720E2FDFD00E89CF3 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC446B6620E2FDFD00E89CF3 /* Theater.swift */; };
@@ -30,6 +31,7 @@
 		AC15ADBB20E7EE64002584B7 /* MoviesLib.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesLib.xcdatamodel; sourceTree = "<group>"; };
 		AC15ADBD20E7F642002584B7 /* MovieRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRegisterViewController.swift; sourceTree = "<group>"; };
 		AC15ADBF20E801A7002584B7 /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
+		AC15ADC120E8158D002584B7 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		AC446B6220E2F5C900E89CF3 /* theaters.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = theaters.xml; sourceTree = "<group>"; };
 		AC446B6420E2FAFF00E89CF3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AC446B6620E2FDFD00E89CF3 /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				AC72ECF520D322A100B76D8F /* AppDelegate.swift */,
 				AC72ECF720D322A100B76D8F /* ViewController.swift */,
 				AC72ECF920D322A100B76D8F /* Main.storyboard */,
+				AC15ADC120E8158D002584B7 /* CategoriesTableViewController.swift */,
 				AC15ADBF20E801A7002584B7 /* UIViewController+CoreData.swift */,
 				AC15ADBD20E7F642002584B7 /* MovieRegisterViewController.swift */,
 				ACE1CE8820E5B0BF003B9BAB /* URLViewController.swift */,
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACCDD2DE20DC82AF00579EDA /* MovieTableViewCell.swift in Sources */,
+				AC15ADC220E8158D002584B7 /* CategoriesTableViewController.swift in Sources */,
 				AC446B6520E2FAFF00E89CF3 /* MapViewController.swift in Sources */,
 				AC446B6920E3098F00E89CF3 /* TheaterAnnotation.swift in Sources */,
 				ACCDD2B820DC694000579EDA /* MoviesTableViewController.swift in Sources */,
